@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editar Usuario</title>
+  <!-- Incluir Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Agregar aquí tus estilos personalizados, si es necesario -->
+  <style>
+    /* Ejemplo de estilos personalizados */
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: url('https://image.cdn2.seaart.ai/2023-10-15/19954183145795589/094bb571425a34d638108bd509e863f375d04edd_high.webp') no-repeat center center; /* Imagen centrada */
+      background-size: cover; /* Ajustar el tamaño de la imagen para cubrir todo el fondo */
+      position: relative; /* Necesario para la posición del overlay */
+    }
+
+    .container {
+        position: relative; 
+      margin: 50px auto; 
+      padding: 20px;
+      max-width: 600px;
+      background: rgba(0, 0, 0, 0.5); 
+      backdrop-filter: blur(10px); 
+      border-radius: 10px; 
+      color: white; 
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="mt-4 mb-4">Editar Usuario</h1>
+    
+    <form action="/users/update/<%= user._id %>" method="POST">
+      <div class="form-group">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="name" class="form-control" value="<%= user.name %>" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" class="form-control" value="<%= user.email %>" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Contraseña:</label>
+        <input type="password" id="password" name="password" class="form-control" placeholder="Dejar en blanco para mantener la misma contraseña">
+      </div>
+      <button type="submit" class="btn btn-success">Actualizar Usuario</button>
+    </form>
+
+    <hr>
+    <a href="/users" class="btn btn-secondary">Regresar a la lista de usuarios</a>
+  </div>
+
+  <!-- Incluir Bootstrap y sus dependencias -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
